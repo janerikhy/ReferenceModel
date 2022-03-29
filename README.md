@@ -1,2 +1,3 @@
 # ReferenceModel
-Reference model for Marine Computer Lab
+
+Simple example of how to create a reference model using a damped harmonic oscillator. 
