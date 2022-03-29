@@ -8,8 +8,6 @@ plt.rcParams.update({
 })
 
 dir = os.path.dirname(__file__)
-print(dir)
-
 
 # Damped Harmonic Oscillator Parameters
 zeta = 0.9
