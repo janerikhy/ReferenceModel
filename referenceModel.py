@@ -46,15 +46,22 @@ r = x[0, :]
 # Reference velocity v
 v = x[1, :]
 
+# Reference acceleration
+a = np.zeros(len(t))
+a[1:] = (v[1:] - v[0:-1])/dt
 
-fig, ax = plt.subplots(2, 1, sharex=True)
-ax[0].set_title("Reference Model", fontsize=20)
-ax[0].plot(t, r, label="$r(t)$")
-ax[0].set_ylabel("$Position \; [m]$")
-ax[0].legend()
-ax[1].plot(t, v, 'g-', label=r"$\dot{r}(t)$")
-ax[1].set_ylabel("$Velocity \;\; [m/s]$")
-ax[1].set_xlabel("$t \; [s]$")
-ax[1].legend(loc="upper left")
-plt.savefig(os.path.join(dir, 'reference_pos_vel.png'), dpi=350)
-plt.show()
+if __name__ == "__main__":
+    fig, ax = plt.subplots(3, 1, sharex=True)
+    ax[0].set_title("Reference Model", fontsize=20)
+    ax[0].plot(t, r, label="$r(t)$")
+    ax[0].set_ylabel("$Position \; [m]$")
+    ax[0].legend()
+    ax[1].plot(t, v, 'g-', label=r"$\dot{r}(t)$")
+    ax[1].set_ylabel("$Velocity \;\; [m/s]$")
+    ax[1].set_xlabel("$t \; [s]$")
+    ax[1].legend(loc="upper left")
+    ax[2].plot(t, a, label="$a$")
+    ax[2].set_ylabel("$Acceleration \; [m/s^2]$")
+    ax[2].legend()
+    plt.savefig(os.path.join(dir, 'reference_pos_vel.png'), dpi=350)
+    plt.show()
