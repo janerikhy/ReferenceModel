@@ -1,10 +1,14 @@
 import numpy as np
 import matplotlib.pyplot as plt
+import os
 
 plt.style.use("seaborn-whitegrid")
 plt.rcParams.update({
     'figure.figsize': (12, 5)
 })
+
+dir = os.path.dirname(__file__)
+print(dir)
 
 
 # Damped Harmonic Oscillator Parameters
@@ -46,6 +50,7 @@ v = x[1, :]
 
 
 fig, ax = plt.subplots(2, 1, sharex=True)
+
 ax[0].plot(t, r, label="$r(t)$")
 ax[0].set_ylabel("$Position \; [m]$")
 ax[0].legend()
@@ -53,5 +58,6 @@ ax[1].plot(t, v, 'g-', label=r"$\dot{r}(t)$")
 ax[1].set_ylabel("$Velocity \;\; [m/s]$")
 ax[1].set_xlabel("$t \; [s]$")
 ax[1].legend(loc="upper left")
-plt.savefig('reference_pos_vel.png', dpi=350)
+plt.title('Reference Model')
+plt.savefig(os.path.join(dir, 'reference_pos_vel.png'), dpi=350)
 plt.show()
