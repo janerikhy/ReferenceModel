@@ -1,13 +1,13 @@
 import numpy as np
 
 # Set the observer parameters
-m_obs = 9       # 1 kg difference from simulation model
+m_obs = .4       # 1 kg difference from simulation model
 d_obs = 1       # .4 difference from simulation model
 
 # Observer gains
-L1 = 5
-L2 = 5
-L3 = 5
+L1 = 1
+L2 = 3
+L3 = .6
 
 
 def observer(x, y, tau):

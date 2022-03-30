@@ -54,6 +54,7 @@ if __name__ == "__main__":
     fig, ax = plt.subplots(3, 1, sharex=True)
     ax[0].set_title("Reference Model", fontsize=20)
     ax[0].plot(t, r, label="$r(t)$")
+    ax[0].plot(t, u_c, 'r--', label=r"$p_{ref}$")
     ax[0].set_ylabel("$Position \; [m]$")
     ax[0].legend()
     ax[1].plot(t, v, 'g-', label=r"$\dot{r}(t)$")
